@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shweta | Resume</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         body {
             background: #0e0e0e;
             color: #ddd;
             font-family: 'Segoe UI', sans-serif;
-            overflow-x: hidden
+            overflow-x: hidden;
         }
 
         .bg-blur {
@@ -20,7 +22,7 @@
             border-radius: 9999px;
             filter: blur(120px);
             z-index: -1;
-            animation: floatBlob 12s ease-in-out infinite
+            animation: floatBlob 12s ease-in-out infinite;
         }
 
         .bg-blur-1 {
@@ -28,7 +30,7 @@
             height: 300px;
             background: rgba(59, 130, 246, .15);
             top: -100px;
-            left: -100px
+            left: -100px;
         }
 
         .bg-blur-2 {
@@ -37,18 +39,15 @@
             background: rgba(96, 165, 250, .12);
             bottom: -100px;
             right: -100px;
-            animation-delay: 3s
+            animation-delay: 3s;
         }
 
         @keyframes floatBlob {
-
-            0%,
-            100% {
-                transform: translate(0, 0)
+            0%,100% {
+                transform: translate(0,0);
             }
-
             50% {
-                transform: translate(40px, -30px)
+                transform: translate(40px,-30px);
             }
         }
 
@@ -56,13 +55,13 @@
             background: #1a1a1a;
             color: #fff;
             border: 1px solid #333;
-            transition: .3s
+            transition: .3s;
         }
 
         input:focus {
             border-color: #4f46e5;
             outline: none;
-            box-shadow: 0 0 10px rgba(79, 70, 229, .3)
+            box-shadow: 0 0 10px rgba(79,70,229,.3);
         }
 
         nav {
@@ -70,24 +69,24 @@
             border-bottom: 1px solid #2c2c2c;
             position: sticky;
             top: 0;
-            z-index: 100
+            z-index: 100;
         }
 
         .nav-link {
             position: relative;
             padding: 8px;
-            transition: .3s
+            transition: .3s;
         }
 
         .nav-link:hover {
-            color: #60a5fa
+            color: #60a5fa;
         }
 
         .nav-link.active {
-            color: #38bdf8
+            color: #38bdf8;
         }
 
-        .nav-link:after {
+        .nav-link::after {
             content: '';
             position: absolute;
             left: 0;
@@ -95,37 +94,36 @@
             width: 0;
             height: 2px;
             background: #38bdf8;
-            transition: .3s
+            transition: .3s;
         }
 
-        .nav-link:hover:after,
-        .nav-link.active:after {
-            width: 100%
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
         }
 
         .glass {
-            background: rgba(255, 255, 255, .04);
-            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
             backdrop-filter: blur(12px);
         }
 
         .error {
             color: #ef4444;
             font-size: .85rem;
-            margin-top: 5px
+            margin-top: 5px;
         }
 
         @media(max-width:768px) {
             .desktop-menu {
-                display: none
+                display: none;
             }
         }
 
         @media(min-width:769px) {
-
             #menuBtn,
             #mobileMenu {
-                display: none
+                display: none;
             }
         }
     </style>
@@ -168,8 +166,7 @@
 
             <div class="text-center">
 
-                <div
-                    class="w-24 h-24 mx-auto rounded-full bg-blue-600/20 flex items-center justify-center text-4xl text-blue-500 mb-6">
+                <div class="w-24 h-24 mx-auto rounded-full bg-blue-600/20 flex items-center justify-center text-4xl text-blue-500 mb-6">
                     <i class="fas fa-file-alt"></i>
                 </div>
 
@@ -181,8 +178,7 @@
                     Please provide your professional details. A resume request email will be prepared automatically.
                 </p>
 
-                <div
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 bg-[#1a1a1a] mt-5">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 bg-[#1a1a1a] mt-5">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span class="text-sm">Currently accepting opportunities</span>
                 </div>
@@ -222,38 +218,20 @@
 
                 <div>
                     <label class="block mb-2">Recruiter Name *</label>
-                    <input type="text" id="recruiterName" placeholder="John Smith" class="w-full p-4 rounded-xl">
+                    <input type="text" id="recruiterName" placeholder="John Smith" class="w-full p-4 rounded-xl" autocomplete="off">
                     <p id="nameError" class="error"></p>
                 </div>
 
                 <div>
                     <label class="block mb-2">Company Name *</label>
-                    <input type="text" id="companyName" placeholder="Google, Amazon, Deloitte..."
-                        class="w-full p-4 rounded-xl">
+                    <input type="text" id="companyName" placeholder="Company Name" class="w-full p-4 rounded-xl" autocomplete="off">
                     <p id="companyError" class="error"></p>
-
-                    <div id="companyPreview" class="hidden mt-4 p-3 rounded-xl bg-[#1a1a1a] border border-[#333]">
-                        <div class="flex items-center gap-3">
-
-                            <div class="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center">
-                                <i class="fas fa-building text-blue-400"></i>
-                            </div>
-
-                            <span id="companyText" class="text-gray-300 font-medium"></span>
-
-                        </div>
-                    </div>
-
                 </div>
 
                 <div>
                     <label class="block mb-2">Official Email *</label>
-                    <input type="email" id="recruiterEmail" placeholder="john.smith@company.com"
-                        class="w-full p-4 rounded-xl">
+                    <input type="email" id="recruiterEmail" placeholder="name@company.com" class="w-full p-4 rounded-xl" autocomplete="off">
                     <p id="emailError" class="error"></p>
-                    <p class="text-xs text-gray-500 mt-2">
-                        john.smith@google.com, recruiter@gmail.com, hr@yahoo.com
-                    </p>
                 </div>
 
                 <div class="text-center pt-4">
@@ -275,24 +253,13 @@
     </footer>
 
     <script>
-        document.getElementById("menuBtn").addEventListener("click", () => {
-            document.getElementById("mobileMenu").classList.toggle("hidden");
-        });
+        const menuBtn = document.getElementById("menuBtn");
 
-        const companyInput = document.getElementById("companyName");
-
-        companyInput.addEventListener("input", () => {
-            const company = companyInput.value.trim();
-            const preview = document.getElementById("companyPreview");
-
-            if (company.length < 2) {
-                preview.classList.add("hidden");
-                return;
-            }
-
-            document.getElementById("companyText").textContent = company;
-            preview.classList.remove("hidden");
-        });
+        if (menuBtn) {
+            menuBtn.addEventListener("click", () => {
+                document.getElementById("mobileMenu").classList.toggle("hidden");
+            });
+        }
 
         function isValidEmail(email) {
             return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
@@ -334,13 +301,14 @@
 
             const submitBtn = document.getElementById("submitBtn");
 
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Opening Email...';
+            submitBtn.innerHTML =
+                '<i class="fas fa-spinner fa-spin mr-2"></i>Opening Email...';
 
             const subject = "Request for Resume – Data Analyst Opportunity";
 
             const body = `Hi Shweta,
 
-I came across your portfolio and would like to request your resume for a potential opportunity.
+I came across your portfolio and would like to request your resume.
 
 Recruiter Name: ${recruiterName}
 Company: ${companyName}
@@ -352,15 +320,15 @@ Best regards,
 ${recruiterName}
 ${companyName}`;
 
-            window.location.href = `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href =
+                `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2' ></i > Request Resume';
+                submitBtn.innerHTML =
+                    '<i class="fas fa-paper-plane mr-2"></i> Request Resume';
             }, 2000);
-
         });
     </script>
 
 </body>
-
 </html>
