@@ -229,6 +229,12 @@
                 </div>
 
                 <div>
+                    <label class="block mb-2">Job Title *</label>
+                    <input type="text" id="jobTitle" placeholder="Data Analyst" class="w-full p-4 rounded-xl" autocomplete="off">
+                    <p id="jobTitleError" class="error"></p>
+                </div>
+
+                <div>
                     <label class="block mb-2">Official Email *</label>
                     <input type="email" id="recruiterEmail" placeholder="name@company.com" class="w-full p-4 rounded-xl" autocomplete="off">
                     <p id="emailError" class="error"></p>
@@ -271,12 +277,14 @@
 
             const recruiterName = document.getElementById("recruiterName").value.trim();
             const companyName = document.getElementById("companyName").value.trim();
+            const jobTitle = document.getElementById("jobTitle").value.trim();
             const recruiterEmail = document.getElementById("recruiterEmail").value.trim();
 
             let valid = true;
 
             document.getElementById("nameError").textContent = "";
             document.getElementById("companyError").textContent = "";
+            document.getElementById("jobTitleError").textContent = "";
             document.getElementById("emailError").textContent = "";
 
             if (!recruiterName) {
@@ -289,6 +297,11 @@
                 valid = false;
             }
 
+            if (!jobTitle) {
+                document.getElementById("jobTitleError").textContent = "Job title is required.";
+                valid = false;
+            }
+            
             if (!recruiterEmail) {
                 document.getElementById("emailError").textContent = "Email is required.";
                 valid = false;
@@ -304,7 +317,7 @@
             submitBtn.innerHTML =
                 '<i class="fas fa-spinner fa-spin mr-2"></i>Opening Email...';
 
-            const subject = "Request for Resume – Data Analyst Opportunity";
+            const subject = `Request for Resume | ${companyName} | ${jobTitle}`;
 
             const body = `Hi Shweta,
 
@@ -312,6 +325,7 @@ I came across your portfolio and would like to request your resume.
 
 Recruiter Name: ${recruiterName}
 Company: ${companyName}
+Job Title: ${jobTitle}
 Official Email: ${recruiterEmail}
 
 Please share your latest resume.
