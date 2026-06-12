@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shweta | Resume</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         body {
@@ -43,11 +43,14 @@
         }
 
         @keyframes floatBlob {
-            0%,100% {
-                transform: translate(0,0);
+
+            0%,
+            100% {
+                transform: translate(0, 0);
             }
+
             50% {
-                transform: translate(40px,-30px);
+                transform: translate(40px, -30px);
             }
         }
 
@@ -61,7 +64,7 @@
         input:focus {
             border-color: #4f46e5;
             outline: none;
-            box-shadow: 0 0 10px rgba(79,70,229,.3);
+            box-shadow: 0 0 10px rgba(79, 70, 229, .3);
         }
 
         nav {
@@ -103,8 +106,8 @@
         }
 
         .glass {
-            background: rgba(255,255,255,.04);
-            border: 1px solid rgba(255,255,255,.08);
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
             backdrop-filter: blur(12px);
         }
 
@@ -121,10 +124,173 @@
         }
 
         @media(min-width:769px) {
+
             #menuBtn,
             #mobileMenu {
                 display: none;
             }
+        }
+
+        /* PLAYFUL UPGRADES */
+        .resume-illustration {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: auto
+        }
+
+        .paper-card {
+            width: 85px;
+            height: 85px;
+            background: white;
+            border-radius: 24px;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            margin: auto;
+            animation: paperFloat 3s ease-in-out infinite
+        }
+
+        @keyframes paperFloat {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+        @keyframes mailBounce {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-8px)
+            }
+        }
+
+        .glass {
+            transition: .35s ease
+        }
+
+        .glass:hover {
+            transform: translateY(-4px)
+        }
+
+        input:hover {
+            transform: translateY(-1px)
+        }
+
+        input:focus {
+            transform: translateY(-2px)
+        }
+
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, .85);
+            backdrop-filter: blur(12px);
+
+            display: none;
+            /* IMPORTANT */
+            justify-content: center;
+            align-items: center;
+
+            z-index: 999999;
+        }
+
+        .success-card {
+            width: min(90%, 520px);
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+
+            position: relative;
+        }
+
+        @keyframes successEnter {
+            from {
+                opacity: 0;
+                transform: translateY(25px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .tick-circle {
+            width: 100px;
+            margin: auto auto 20px
+        }
+
+        .tick-circle svg {
+            width: 100%
+        }
+
+        .tick-circle circle {
+            fill: white
+        }
+
+        .tick-circle path {
+            fill: none;
+            stroke: #22c55e;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawTick 1s ease forwards
+        }
+
+        @keyframes drawTick {
+            to {
+                stroke-dashoffset: 0
+            }
+        }
+
+        .mail-loading {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, .2);
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin .8s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        #openEmailBtn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 16px
         }
     </style>
 </head>
@@ -166,7 +332,8 @@
 
             <div class="text-center">
 
-                <div class="w-24 h-24 mx-auto rounded-full bg-blue-600/20 flex items-center justify-center text-4xl text-blue-500 mb-6">
+                <div
+                    class="w-24 h-24 mx-auto rounded-full bg-blue-600/20 flex items-center justify-center text-4xl text-blue-500 mb-6">
                     <i class="fas fa-file-alt"></i>
                 </div>
 
@@ -178,7 +345,8 @@
                     Please provide your professional details. A resume request email will be prepared automatically.
                 </p>
 
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 bg-[#1a1a1a] mt-5">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 bg-[#1a1a1a] mt-5">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span class="text-sm">Currently accepting opportunities</span>
                 </div>
@@ -218,25 +386,29 @@
 
                 <div>
                     <label class="block mb-2">Recruiter Name *</label>
-                    <input type="text" id="recruiterName" placeholder="John Smith" class="w-full p-4 rounded-xl" autocomplete="off">
+                    <input type="text" id="recruiterName" placeholder="Your Name" class="w-full p-4 rounded-xl"
+                        autocomplete="off">
                     <p id="nameError" class="error"></p>
                 </div>
 
                 <div>
                     <label class="block mb-2">Company Name *</label>
-                    <input type="text" id="companyName" placeholder="Company Name" class="w-full p-4 rounded-xl" autocomplete="off">
+                    <input type="text" id="companyName" placeholder="Company Name" class="w-full p-4 rounded-xl"
+                        autocomplete="off">
                     <p id="companyError" class="error"></p>
                 </div>
 
                 <div>
                     <label class="block mb-2">Job Title *</label>
-                    <input type="text" id="jobTitle" placeholder="Data Analyst" class="w-full p-4 rounded-xl" autocomplete="off">
+                    <input type="text" id="jobTitle" placeholder="Hiring For" class="w-full p-4 rounded-xl"
+                        autocomplete="off">
                     <p id="jobTitleError" class="error"></p>
                 </div>
 
                 <div>
                     <label class="block mb-2">Official Email *</label>
-                    <input type="email" id="recruiterEmail" placeholder="name@company.com" class="w-full p-4 rounded-xl" autocomplete="off">
+                    <input type="email" id="recruiterEmail" placeholder="name@company.com" class="w-full p-4 rounded-xl"
+                        autocomplete="off">
                     <p id="emailError" class="error"></p>
                 </div>
 
@@ -254,95 +426,181 @@
 
     </section>
 
+
     <footer class="border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
         © 2025 Shweta Bhagat. All rights reserved.
     </footer>
 
-    <script>
-        const menuBtn = document.getElementById("menuBtn");
+    <!-- SUCCESS MODAL -->
 
-        if (menuBtn) {
-            menuBtn.addEventListener("click", () => {
-                document.getElementById("mobileMenu").classList.toggle("hidden");
-            });
-        }
+    <div id="successModal" class="success-overlay">
 
-        function isValidEmail(email) {
-            return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
-        }
+        <div class="success-card">
 
-        document.getElementById("resumeForm").addEventListener("submit", function (e) {
+            <div class="tick-circle">
+                <svg viewBox="0 0 52 52">
+                    <circle cx="26" cy="26" r="25"></circle>
+                    <path d="M14 27 L22 35 L38 18"></path>
+                </svg>
+            </div>
 
-            e.preventDefault();
+            <h2 class="text-3xl font-bold text-white mb-3">
+                Request Generated
+            </h2>
 
-            const recruiterName = document.getElementById("recruiterName").value.trim();
-            const companyName = document.getElementById("companyName").value.trim();
-            const jobTitle = document.getElementById("jobTitle").value.trim();
-            const recruiterEmail = document.getElementById("recruiterEmail").value.trim();
+            <p class="text-gray-300">
+                Thank you for your interest.
+            </p>
 
-            let valid = true;
+            <p class="text-gray-400 mt-2">
+                Your resume request has been prepared.
+            </p>
 
-            document.getElementById("nameError").textContent = "";
-            document.getElementById("companyError").textContent = "";
-            document.getElementById("jobTitleError").textContent = "";
-            document.getElementById("emailError").textContent = "";
+            <div id="loadingSection" style="display:none;">
+                <div class="mail-loading">
+                    <div class="spinner"></div>
+                    <span>Opening Mail...</span>
+                </div>
+            </div>
 
-            if (!recruiterName) {
-                document.getElementById("nameError").textContent = "Recruiter name is required.";
-                valid = false;
+        </div>
+
+        <script>
+            const menuBtn = document.getElementById("menuBtn");
+
+            if (menuBtn) {
+                menuBtn.addEventListener("click", () => {
+                    document.getElementById("mobileMenu").classList.toggle("hidden");
+                });
             }
 
-            if (!companyName) {
-                document.getElementById("companyError").textContent = "Company name is required.";
-                valid = false;
+            function isValidEmail(email) {
+                return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
             }
 
-            if (!jobTitle) {
-                document.getElementById("jobTitleError").textContent = "Job title is required.";
-                valid = false;
-            }
-            
-            if (!recruiterEmail) {
-                document.getElementById("emailError").textContent = "Email is required.";
-                valid = false;
-            } else if (!isValidEmail(recruiterEmail)) {
-                document.getElementById("emailError").textContent = "Enter a valid email address.";
-                valid = false;
-            }
+            document.getElementById("resumeForm").addEventListener("submit", function (e) {
 
-            if (!valid) return;
+                e.preventDefault();
 
-            const submitBtn = document.getElementById("submitBtn");
+                const recruiterName = document.getElementById("recruiterName").value.trim();
+                const companyName = document.getElementById("companyName").value.trim();
+                const jobTitle = document.getElementById("jobTitle").value.trim();
+                const recruiterEmail = document.getElementById("recruiterEmail").value.trim();
 
-            submitBtn.innerHTML =
-                '<i class="fas fa-spinner fa-spin mr-2"></i>Opening Email...';
+                let valid = true;
 
-            const subject = `Request for Resume | ${companyName} | ${jobTitle}`;
+                document.getElementById("nameError").textContent = "";
+                document.getElementById("companyError").textContent = "";
+                document.getElementById("jobTitleError").textContent = "";
+                document.getElementById("emailError").textContent = "";
 
-            const body = `Hi Shweta,
+                if (!recruiterName) {
+                    document.getElementById("nameError").textContent = "Recruiter name is required.";
+                    valid = false;
+                }
 
-I came across your portfolio and would like to request your resume.
+                if (!companyName) {
+                    document.getElementById("companyError").textContent = "Company name is required.";
+                    valid = false;
+                }
 
-Recruiter Name: ${recruiterName}
-Company: ${companyName}
-Job Title: ${jobTitle}
-Official Email: ${recruiterEmail}
+                if (!jobTitle) {
+                    document.getElementById("jobTitleError").textContent = "Job title is required.";
+                    valid = false;
+                }
 
-Please share your latest resume.
+                if (!recruiterEmail) {
+                    document.getElementById("emailError").textContent = "Email is required.";
+                    valid = false;
+                } else if (!isValidEmail(recruiterEmail)) {
+                    document.getElementById("emailError").textContent = "Enter a valid email address.";
+                    valid = false;
+                }
 
-Best regards,
-${recruiterName}
-${companyName}`;
+                if (!valid) return;
 
-            window.location.href =
-                `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                const submitBtn = document.getElementById("submitBtn");
 
-            setTimeout(() => {
                 submitBtn.innerHTML =
-                    '<i class="fas fa-paper-plane mr-2"></i> Request Resume';
-            }, 2000);
-        });
-    </script>
+                    '<i class="fas fa-spinner fa-spin mr-2"></i>Opening Email...';
+
+                const subject = `Request for Resume | ${companyName} | ${jobTitle}`;
+
+                const body = `Hello Shweta,
+
+                My name is ${recruiterName}, and I am reaching out from ${companyName} regarding a potential ${jobTitle} opportunity.
+
+                I recently reviewed your profile and am interested in learning more about your professional experience and exploring whether there may be a good fit between your profile and our requirements.
+
+                Kindly share your resume at your earliest convenience.
+
+                I look forward to hearing from you.
+
+                Best regards,
+                ${recruiterName}
+                ${recruiterEmail}`;
+
+                /* SHOW SUCCESS MODAL */
+
+                const modal = document.getElementById("successModal");
+
+                modal.style.display = "flex";
+                modal.style.position = "fixed";
+                modal.style.top = "0";
+                modal.style.left = "0";
+                modal.style.width = "100%";
+                modal.style.height = "100vh";
+
+                /* CHANGE BUTTON */
+
+                submitBtn.innerHTML =
+                    '<i class="fas fa-check mr-2"></i> Request Created';
+
+                /* SHOW LOADING AFTER 1.5 SEC */
+
+                setTimeout(() => {
+
+                    document
+                        .getElementById("loadingSection")
+                        .style.display = "block";
+
+                }, 1500);
+
+                /* OPEN EMAIL AFTER 1.5 SEC */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                }, 1500);
+
+                /* OPEN EMAIL AFTER 4 SEC */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                    setTimeout(() => {
+
+                        document.getElementById("successModal").style.display = "none";
+
+                        document.getElementById("loadingSection").style.display = "none";
+
+                        submitBtn.innerHTML =
+                            '<i class="fas fa-paper-plane mr-2"></i> Request Resume';
+
+                    }, 1000);
+
+                }, 4000);
+
+            }); // CLOSES addEventListener
+
+        </script>
+
+    </div>
 
 </body>
+
 </html>
