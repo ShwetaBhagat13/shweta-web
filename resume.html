@@ -320,9 +320,9 @@
         </div>
 
         <div id="mobileMenu" class="hidden flex-col gap-4 pt-4 text-center text-gray-300">
-            <a href="#" class="block py-2">Home</a>
-            <a href="#" class="block py-2">Projects</a>
-            <a href="#" class="block py-2 text-blue-400">Resume</a>
+            <a href="index.html" class="block py-2">Home</a>
+            <a href="projects.html" class="block py-2">Projects</a>
+            <a href="resume.html" class="block py-2 text-blue-400">Resume</a>
         </div>
     </nav>
 
@@ -338,11 +338,11 @@
                 </div>
 
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    Resume Access
+                    Request Resume
                 </h1>
 
                 <p class="text-gray-400 max-w-2xl mx-auto">
-                    Please provide your professional details. A resume request email will be prepared automatically.
+                    Please provide your details. A resume request email will be prepared automatically.
                 </p>
 
                 <div
@@ -428,7 +428,7 @@
 
 
     <footer class="border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
-        © 2025 Shweta Bhagat. All rights reserved.
+    © <span id="currentYear"></span> Shweta Bhagat. All rights reserved.
     </footer>
 
     <!-- SUCCESS MODAL -->
@@ -464,143 +464,116 @@
             </div>
 
         </div>
-
-        <script>
-            const menuBtn = document.getElementById("menuBtn");
-
-            if (menuBtn) {
-                menuBtn.addEventListener("click", () => {
-                    document.getElementById("mobileMenu").classList.toggle("hidden");
-                });
-            }
-
-            function isValidEmail(email) {
-                return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
-            }
-
-            document.getElementById("resumeForm").addEventListener("submit", function (e) {
-
-                e.preventDefault();
-
-                const recruiterName = document.getElementById("recruiterName").value.trim();
-                const companyName = document.getElementById("companyName").value.trim();
-                const jobTitle = document.getElementById("jobTitle").value.trim();
-                const recruiterEmail = document.getElementById("recruiterEmail").value.trim();
-
-                let valid = true;
-
-                document.getElementById("nameError").textContent = "";
-                document.getElementById("companyError").textContent = "";
-                document.getElementById("jobTitleError").textContent = "";
-                document.getElementById("emailError").textContent = "";
-
-                if (!recruiterName) {
-                    document.getElementById("nameError").textContent = "Recruiter name is required.";
-                    valid = false;
-                }
-
-                if (!companyName) {
-                    document.getElementById("companyError").textContent = "Company name is required.";
-                    valid = false;
-                }
-
-                if (!jobTitle) {
-                    document.getElementById("jobTitleError").textContent = "Job title is required.";
-                    valid = false;
-                }
-
-                if (!recruiterEmail) {
-                    document.getElementById("emailError").textContent = "Email is required.";
-                    valid = false;
-                } else if (!isValidEmail(recruiterEmail)) {
-                    document.getElementById("emailError").textContent = "Enter a valid email address.";
-                    valid = false;
-                }
-
-                if (!valid) return;
-
-                const submitBtn = document.getElementById("submitBtn");
-
-                submitBtn.innerHTML =
-                    '<i class="fas fa-spinner fa-spin mr-2"></i>Opening Email...';
-
-                const subject = `Request for Resume | ${companyName} | ${jobTitle}`;
-
-                const body = `Hello Shweta,
-
-                My name is ${recruiterName}, and I am reaching out from ${companyName} regarding a potential ${jobTitle} opportunity.
-
-                I recently reviewed your profile and am interested in learning more about your professional experience and exploring whether there may be a good fit between your profile and our requirements.
-
-                Kindly share your resume at your earliest convenience.
-
-                I look forward to hearing from you.
-
-                Best regards,
-                ${recruiterName}
-                ${recruiterEmail}`;
-
-                /* SHOW SUCCESS MODAL */
-
-                const modal = document.getElementById("successModal");
-
-                modal.style.display = "flex";
-                modal.style.position = "fixed";
-                modal.style.top = "0";
-                modal.style.left = "0";
-                modal.style.width = "100%";
-                modal.style.height = "100vh";
-
-                /* CHANGE BUTTON */
-
-                submitBtn.innerHTML =
-                    '<i class="fas fa-check mr-2"></i> Request Created';
-
-                /* SHOW LOADING AFTER 1.5 SEC */
-
-                setTimeout(() => {
-
-                    document
-                        .getElementById("loadingSection")
-                        .style.display = "block";
-
-                }, 1500);
-
-                /* OPEN EMAIL AFTER 1.5 SEC */
-
-                setTimeout(() => {
-
-                    window.location.href =
-                        `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-                }, 1500);
-
-                /* OPEN EMAIL AFTER 4 SEC */
-
-                setTimeout(() => {
-
-                    window.location.href =
-                        `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-                    setTimeout(() => {
-
-                        document.getElementById("successModal").style.display = "none";
-
-                        document.getElementById("loadingSection").style.display = "none";
-
-                        submitBtn.innerHTML =
-                            '<i class="fas fa-paper-plane mr-2"></i> Request Resume';
-
-                    }, 1000);
-
-                }, 4000);
-
-            }); // CLOSES addEventListener
-
-        </script>
-
     </div>
+    
+<script>
+    const year = new Date().getFullYear();
+    document.getElementById("currentYear").innerText = year;
+    
+    const menuBtn = document.getElementById("menuBtn");
 
+    if (menuBtn) {
+        menuBtn.addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.toggle("hidden");
+        });
+    }
+
+    function isValidEmail(email) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
+    }
+
+    document.getElementById("resumeForm").addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const recruiterName = document.getElementById("recruiterName").value.trim();
+        const companyName = document.getElementById("companyName").value.trim();
+        const jobTitle = document.getElementById("jobTitle").value.trim();
+        const recruiterEmail = document.getElementById("recruiterEmail").value.trim();
+
+        let valid = true;
+
+        document.getElementById("nameError").textContent = "";
+        document.getElementById("companyError").textContent = "";
+        document.getElementById("jobTitleError").textContent = "";
+        document.getElementById("emailError").textContent = "";
+
+        if (!recruiterName) {
+            document.getElementById("nameError").textContent = "Recruiter name is required.";
+            valid = false;
+        }
+
+        if (!companyName) {
+            document.getElementById("companyError").textContent = "Company name is required.";
+            valid = false;
+        }
+
+        if (!jobTitle) {
+            document.getElementById("jobTitleError").textContent = "Job title is required.";
+            valid = false;
+        }
+
+        if (!recruiterEmail) {
+            document.getElementById("emailError").textContent = "Email is required.";
+            valid = false;
+        } else if (!isValidEmail(recruiterEmail)) {
+            document.getElementById("emailError").textContent = "Enter a valid email address.";
+            valid = false;
+        }
+
+        if (!valid) return;
+
+        const submitBtn = document.getElementById("submitBtn");
+
+        submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin mr-2"></i> Opening Email...';
+
+        const subject = `Request for Resume | ${companyName} | ${jobTitle}`;
+
+        const body = `Hello Shweta,
+
+My name is ${recruiterName}, and I am reaching out from ${companyName} regarding a potential ${jobTitle} opportunity.
+
+I recently reviewed your profile and am interested in learning more about your professional experience and exploring whether there may be a good fit between your profile and our requirements.
+
+Kindly share your resume at your earliest convenience.
+
+I look forward to hearing from you.
+
+Best regards,
+${recruiterName}
+${recruiterEmail}`;
+
+        const modal = document.getElementById("successModal");
+
+        modal.style.display = "flex";
+        modal.style.position = "fixed";
+        modal.style.top = "0";
+        modal.style.left = "0";
+        modal.style.width = "100%";
+        modal.style.height = "100vh";
+
+        submitBtn.innerHTML =
+            '<i class="fas fa-check mr-2"></i> Request Created';
+
+        setTimeout(() => {
+            document.getElementById("loadingSection").style.display = "block";
+        }, 1500);
+
+        setTimeout(() => {
+            window.location.href =
+                `mailto:bhagatshweta13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }, 1500);
+
+        setTimeout(() => {
+            document.getElementById("successModal").style.display = "none";
+            document.getElementById("loadingSection").style.display = "none";
+
+            submitBtn.innerHTML =
+                '<i class="fas fa-paper-plane mr-2"></i> Request Resume';
+        }, 5000);
+
+    });
+</script>
 </body>
-
 </html>
